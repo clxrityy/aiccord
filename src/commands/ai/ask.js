@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, PermissionsBitField } = require("discord.js");
 const query = require("../../lib/query");
+const embed = require("../../util/embed");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -21,19 +22,19 @@ module.exports = {
         const response = await query(question);
 
         if (response === undefined) {
-            return await interaction.editReply("I'm sorry I had an error...")
+            return await interaction.editReply({ embeds: [embed(question, "I'm sorry I had an error...", true)] });
         }
         if (response === null) {
-            return await interaction.editReply("null");
+            return await interaction.editReply({ embeds: [embed(question, "**null**", true)] });
         }
         if (response === false) {
-            return await interaction.editReply("I couldn't answer that, sorry!")
+            return await interaction.editReply({ embeds: [embed(question, "I couldn't answer that, sorry!", true)] });
         }
         if (interaction.replied) {
             return;
         }
         if (interaction.deferred) {
-            return await interaction.editReply(response);
+            return await interaction.editReply({ embeds: [embed(question, response)] });
         }
         return;
     }

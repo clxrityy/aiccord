@@ -1,5 +1,5 @@
 const openai = require('./openai');
-const { model, systemRoleContent, temperature, presence_penalty } = require("../config/aiConfig.json");
+const { model, systemRoleContent, temperature, presence_penalty } = require("../config/ai.json");
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));

@@ -24,7 +24,7 @@ OPENAI_ORGANIZATION=
 - Your OpenAI API credentials
   - **[OpenAI | API Keys](https://platform.openai.com/api-keys)**
 
-### CONFIG
+### CONFIG ⚙️
 
 #### `ai.json`
 
@@ -43,3 +43,21 @@ OPENAI_ORGANIZATION=
 - `systemRoleContent` — Tell the AI how to respond.
 - `temperature` — See **[here](https://platform.openai.com/docs/guides/text-generation/how-should-i-set-the-temperature-parameter)**.
 - `presence_penalty` — See **[here](https://platform.openai.com/docs/guides/text-generation/parameter-details)**.
+
+#### `config.json`
+
+> - The bot developer ID's and test guild ID.
+> - `config.example.json`
+
+```json
+{
+    "testGuildId": "",
+    "developersId": [""]
+}
+```
+
+### COMMANDS
+
+- `/ask [question]`
+
+<img src="https://i.gyazo.com/f5e2beb0abccec6fe46c151285df8e09.png" width="500px" />

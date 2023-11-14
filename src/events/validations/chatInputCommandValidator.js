@@ -1,7 +1,7 @@
 require("colors");
 const { EmbedBuilder } = require("discord.js");
-const { developersId, testGuildId } = require("../../config/config.json");
-const msgConfig = require("../../config/messageConfig.json");
+const { developersId, testGuildId } = require("../../config.json");
+const msgConfig = require("../../config/messages.json");
 const getLocalCommands = require("../../util/getLocalCommands");
 
 module.exports = async (client, interaction) => {
