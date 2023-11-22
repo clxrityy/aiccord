@@ -16,13 +16,15 @@ module.exports = {
     userPermissions: [PermissionsBitField.Flags.SendMessages],
     botPermissions: [PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks, PermissionsBitField.Flags.ReadMessageHistory],
     run: async (client, interaction) => {
+        const { guildId } = interaction;
+
         const question = interaction.options.getString("question");
 
         await interaction.deferReply().catch(() => null);
-        const response = await query(question);
+        const response = await query(question, guildId);
 
         if (response === undefined) {
-            return await interaction.editReply({ embeds: [embed(question, "I'm sorry I had an error...", true, 'https://i.gyazo.com/165d484ff60d7221c629f896c9533c0a.gif')] });
+            return await interaction.editReply({ embeds: [embed(question, "I'm sorry, I had an error...", true, 'https://i.gyazo.com/165d484ff60d7221c629f896c9533c0a.gif')] });
         }
         if (response === null) {
             return await interaction.editReply({ embeds: [embed(question, "**null**", true, 'https://i.gyazo.com/165d484ff60d7221c629f896c9533c0a.gif')] });
@@ -38,5 +40,4 @@ module.exports = {
         }
         return;
     }
-
 }

@@ -1,6 +1,6 @@
 # aiccord <img src="./public/assets/img/aiccord.png" width="22.5px"  />
 
-An AI Discord bot.
+A customizable AI Discord bot.
 
 ```zsh
 npm install
@@ -17,18 +17,21 @@ CLIENT_TOKEN=
 CLIENT_ID=
 OPENAI_API_KEY=
 OPENAI_ORGANIZATION=
+MONGO_URI=
 ```
 
 - Your Discord client credentials
   - **[Discord | Developers | Applications](https://discord.com/developers/applications)**
 - Your OpenAI API credentials
   - **[OpenAI | API Keys](https://platform.openai.com/api-keys)**
+- Your MongoDB connection string
+  - **[MongoDB | Create a Connection String](https://www.mongodb.com/docs/drivers/node/current/quick-start/create-a-connection-string/)**
 
 ### CONFIG ⚙️
 
 #### `ai.json`
 
-> - Configure how your AI responds.
+> - Configure how your AI responds by default.
 
 ```json
 {
@@ -58,6 +61,13 @@ OPENAI_ORGANIZATION=
 
 ### COMMANDS
 
-- `/ask [question]`
+- **`/ask [question]`**
 
-<img src="https://i.gyazo.com/f5e2beb0abccec6fe46c151285df8e09.png" width="500px" />
+> <img src="https://i.gyazo.com/f5e2beb0abccec6fe46c151285df8e09.png" width="500px" />
+
+- **`/settings view | system | reset | help`**
+  - >/settings system `role:`Respond in a funny way `temperature:` 0.86
+
+> <img src="https://i.gyazo.com/d1d8ae94333c95308c297292eb590bef.png" width="500px" />
+
+The settings such as temperature and system role content for a specific guild.

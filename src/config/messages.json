@@ -2,6 +2,7 @@
     "embedColorSuccess": "#53b059",
     "embedColorWarning": "#e0766e",
     "embedColorError": "#eb4034",
+    "embedColorDefault": "#9d3cf2",
 
     "embedErrorMessage": "There was an error!",
 
@@ -10,5 +11,7 @@
     "commandPremiumOnly": "This command can only be executed by premium members.",
 
     "userPermissions": "You do not have the proper permissions for this command!",
-    "botPermissions": "I do not have permissions to execute this command!"
+    "botPermissions": "I do not have permissions to execute this command!",
+
+    "cannotUseButton": "You cannot use this button!"
 }

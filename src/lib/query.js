@@ -1,11 +1,25 @@
 const openai = require('./openai');
-const { model, systemRoleContent, temperature, presence_penalty } = require("../config/ai.json");
+const { model, systemRoleContent, temperature, presence_penalty, imgSystemRoleContent } = require("../config/ai.json");
+const guildSchema = require("../schemas/guild");
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-const query = async (prompt) => {
+const query = async (prompt, guildId) => {
+
+    let guildData = await guildSchema.findOne({ GuildID: guildId });
+
+    if (!guildData) {
+        guildData = new guildSchema({
+            GuildID: guildId,
+            Temperature: temperature,
+            SystemRoleContent: systemRoleContent,
+            ImageRoleContent: imgSystemRoleContent
+        })
+
+        await guildData.save();
+    }
 
     if (!prompt || prompt.length < 1) return false;
 
@@ -13,13 +27,13 @@ const query = async (prompt) => {
         model: model,
         messages: [
             {
-                "role": "system", "content": systemRoleContent
+                "role": "system", "content": guildData.SystemRoleContent
             },
             {
                 "role": "user", "content": prompt
             },
         ],
-        temperature: Number(temperature),
+        temperature: guildData.Temperature,
         presence_penalty: Number(presence_penalty)
     })
         .then((res) => res.choices[0].message)
