@@ -1,6 +1,6 @@
 # aiccord <img src="./public/assets/img/aiccord.png" width="22.5px"  />
 
-A customizable AI Discord bot.
+A customizable AI Discord bot with authentication.
 
 ```zsh
 npm install
@@ -13,11 +13,13 @@ npm run dev
 ## .env
 
 ```env
-CLIENT_TOKEN=
 CLIENT_ID=
+CLIENT_PUBLIC_KEY=
+CLIENT_TOKEN=
 OPENAI_API_KEY=
-OPENAI_ORGANIZATION=
+OPENAI_ORGANIZATION_ID=
 MONGO_URI=
+PORT=
 ```
 
 - Your Discord client credentials
@@ -26,6 +28,8 @@ MONGO_URI=
   - **[OpenAI | API Keys](https://platform.openai.com/api-keys)**
 - Your MongoDB connection string
   - **[MongoDB | Create a Connection String](https://www.mongodb.com/docs/drivers/node/current/quick-start/create-a-connection-string/)**
+- **PORT**
+  - Set this to the port you used to set up your redirect URI (view [here](https://discord.com/developers/docs/topics/oauth2) for more info).
 
 ### CONFIG ⚙️
 
